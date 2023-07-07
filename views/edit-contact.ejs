@@ -1,0 +1,16 @@
+<form action="/api/data/<%= contact._id %>/update" method="POST">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="<%= contact.name %>" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="<%= contact.email %>" required>
+    </div>
+    <div class="form-group">
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required><%= contact.message %></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Update</button>
+  </form>
+  

@@ -1,0 +1,32 @@
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Created At</th>
+        <th>Actions</th>
+        <th>
+          <a href="/api/logout" class="delete-btn">Logout</a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% contacts.forEach((contact) => { %>
+      <tr>
+        <td><%= contact.name %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.message %></td>
+        <td><%= contact.createdAt %></td>
+        <td>
+          <a href="/api/data/<%= contact._id %>/edit" class="edit-btn">Edit</a>
+        </td>
+        <td>
+          <a href="/api/data/<%= contact._id %>/delete" class="delete-btn">Delete</a>
+        </td>
+        
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  

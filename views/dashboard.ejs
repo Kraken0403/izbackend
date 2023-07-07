@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Dashboard of IZ</title>
+</head>
+<body>
+
+    <div id="db">
+        <div class="db-wrapper">
+            <div class="db-menu">
+              <div class="db-menu-wrapper">
+                <div class="db-menu-name">
+                  <h2><%- include('menu.ejs') -%></h2>
+                </div>
+                
+                <div class="db-menu-links">
+                  <h2>Contacts</h2>
+                  <h2>Career</h2>
+                  <a href="/api/logout" class="logout-btn">
+                    <h2>Logout</h2>
+                  </a>
+                </div>
+              </div>
+                <!--  -->
+            </div>
+
+            <div class="db-data">
+              <div class="contact">
+                <table class="contact-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Message</th>
+                      <th>Created At</th>
+                      <th>Actions</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% contacts.forEach((contact) => { %>
+                    <tr>
+                      <td><%= contact.name %></td>
+                      <td><%= contact.email %></td>
+                      <td><%= contact.message %></td>
+                      <td><%= contact.createdAt %></td>
+                      <td>
+                        <a href="/api/data/<%= contact._id %>/edit" class="edit-btn">Edit</a>
+                      </td>
+                      <td>
+                        <a href="/api/data/<%= contact._id %>/delete" class="delete-btn">Delete</a>
+                      </td>
+                      
+                    </tr>
+                    <% }); %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
